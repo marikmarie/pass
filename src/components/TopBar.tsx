@@ -10,6 +10,9 @@ import SearchIcon from '@mui/icons-material/Search'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 import SettingsIcon from '@mui/icons-material/Settings'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import WbSunnyIcon from '@mui/icons-material/WbSunny'
+import DarkModeIcon from '@mui/icons-material/DarkMode'
+import { useTheme } from '../context/ThemeContext'
 
 const pageNames: { [key: string]: string } = {
   '/': 'Dashboard',
@@ -24,6 +27,7 @@ const pageNames: { [key: string]: string } = {
 export default function TopBar() {
   const location = useLocation()
   const navigate = useNavigate()
+  const { darkMode, toggleDarkMode } = useTheme()
   const [search, setSearch] = React.useState('')
 
   const getCurrentPageName = () => {
@@ -33,8 +37,9 @@ export default function TopBar() {
   return (
     <Box
       sx={{
-        backgroundColor: '#FFFFFF',
-        borderBottom: '1px solid #E5E7EB',
+        backgroundColor: 'background.paper',
+        borderBottom: '1px solid',
+        borderColor: 'divider',
         px: 3,
         py: 2,
         display: 'flex',
@@ -56,7 +61,7 @@ export default function TopBar() {
       </Box>
 
       {/* Right - Search & Actions */}
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
         {/* Search */}
         <TextField
           placeholder="Search here..."
@@ -66,8 +71,7 @@ export default function TopBar() {
           sx={{
             width: 200,
             '& .MuiOutlinedInput-root': {
-              backgroundColor: '#F9FAFB',
-              '&:hover': { backgroundColor: '#F3F4F6' }
+              backgroundColor: 'background.default'
             }
           }}
           InputProps={{
@@ -79,9 +83,26 @@ export default function TopBar() {
         <IconButton size="small" sx={{ color: 'text.secondary' }}>
           <NotificationsIcon />
         </IconButton>
-        <IconButton size="small" sx={{ color: 'text.secondary' }}>
+        
+        {/* Theme Toggle */}
+        <IconButton 
+          size="small" 
+          onClick={toggleDarkMode}
+          sx={{ color: 'text.secondary' }}
+          title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+          {darkMode ? <WbSunnyIcon /> : <DarkModeIcon />}
+        </IconButton>
+
+        <IconButton 
+          size="small" 
+          sx={{ color: 'text.secondary' }}
+          onClick={() => navigate('/settings')}
+          title="Settings"
+        >
           <SettingsIcon />
         </IconButton>
+        
         <IconButton size="small" sx={{ color: 'text.secondary' }}>
           <AccountCircleIcon />
         </IconButton>

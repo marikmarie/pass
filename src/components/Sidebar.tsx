@@ -16,6 +16,7 @@ import DevicesIcon from '@mui/icons-material/Devices'
 import SchoolIcon from '@mui/icons-material/School'
 import HistoryIcon from '@mui/icons-material/History'
 import LogoutIcon from '@mui/icons-material/Logout'
+import { useTheme as useCustomTheme } from '../context/ThemeContext'
 
 const navItems = [
   { text: 'Dashboard', to: '/', icon: <DashboardIcon /> },
@@ -32,17 +33,29 @@ const secondaryItems = [
 
 export default function Sidebar() {
   const location = useLocation()
+  const { colorScheme } = useCustomTheme()
+
+  const colorMap = {
+    pink: '#FF1B6D',
+    blue: '#3B82F6',
+    purple: '#8B5CF6',
+    green: '#10B981',
+    orange: '#F97316',
+    red: '#EF4444'
+  }
+  
+  const primaryColor = colorMap[colorScheme as keyof typeof colorMap] || '#FF1B6D'
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       {/* Logo Section */}
-      <Box sx={{ p: 2.5, borderBottom: '1px solid #E5E7EB' }}>
+      <Box sx={{ p: 2.5, borderBottom: '1px solid', borderColor: 'divider' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <Box sx={{ width: 40, height: 40, backgroundColor: '#FF1B6D', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold', fontSize: '1.2rem' }}>
+          <Box sx={{ width: 40, height: 40, backgroundColor: primaryColor, borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold', fontSize: '1.2rem' }}>
             P
           </Box>
           <Box>
-            <Typography variant="subtitle1" sx={{ fontWeight: 700, lineHeight: 1 }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 700, lineHeight: 1, color: 'text.primary' }}>
               PASS
             </Typography>
             <Typography variant="caption" color="textSecondary">
@@ -64,14 +77,14 @@ export default function Sidebar() {
                 selected={isSelected}
                 sx={{
                   borderRadius: '8px',
-                  color: isSelected ? '#FF1B6D' : '#6B7280',
-                  backgroundColor: isSelected ? '#FFF0F7' : 'transparent',
+                  color: isSelected ? primaryColor : 'text.secondary',
+                  backgroundColor: isSelected ? `${primaryColor}15` : 'transparent',
                   '&:hover': {
-                    backgroundColor: isSelected ? '#FFF0F7' : '#F9FAFB'
+                    backgroundColor: isSelected ? `${primaryColor}15` : 'action.hover'
                   },
                   '& .MuiListItemIcon-root': {
                     minWidth: 40,
-                    color: isSelected ? '#FF1B6D' : '#9CA3AF'
+                    color: isSelected ? primaryColor : '#9CA3AF'
                   }
                 }}
               >
@@ -107,14 +120,14 @@ export default function Sidebar() {
                 selected={isSelected}
                 sx={{
                   borderRadius: '8px',
-                  color: isSelected ? '#FF1B6D' : '#6B7280',
-                  backgroundColor: isSelected ? '#FFF0F7' : 'transparent',
+                  color: isSelected ? primaryColor : 'text.secondary',
+                  backgroundColor: isSelected ? `${primaryColor}15` : 'transparent',
                   '&:hover': {
-                    backgroundColor: isSelected ? '#FFF0F7' : '#F9FAFB'
+                    backgroundColor: isSelected ? `${primaryColor}15` : 'action.hover'
                   },
                   '& .MuiListItemIcon-root': {
                     minWidth: 40,
-                    color: isSelected ? '#FF1B6D' : '#9CA3AF'
+                    color: isSelected ? primaryColor : '#9CA3AF'
                   }
                 }}
               >
@@ -136,12 +149,12 @@ export default function Sidebar() {
       </List>
 
       {/* Footer */}
-      <Box sx={{ borderTop: '1px solid #E5E7EB', p: 2 }}>
+      <Box sx={{ borderTop: '1px solid', borderColor: 'divider', p: 2 }}>
         <ListItemButton
           sx={{
             borderRadius: '8px',
-            color: '#6B7280',
-            '&:hover': { backgroundColor: '#F9FAFB' },
+            color: 'text.secondary',
+            '&:hover': { backgroundColor: 'action.hover' },
             '& .MuiListItemIcon-root': { minWidth: 40, color: '#9CA3AF' }
           }}
         >

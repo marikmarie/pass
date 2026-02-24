@@ -1,23 +1,18 @@
 import React from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
 import Drawer from '@mui/material/Drawer'
-import AppBar from '@mui/material/AppBar'
-import Typography from '@mui/material/Typography'
-import IconButton from '@mui/material/IconButton'
-import MenuIcon from '@mui/icons-material/Menu'
 import Sidebar from '../components/Sidebar'
 import TopBar from '../components/TopBar'
+import { useTheme } from '../context/ThemeContext'
 
 const drawerWidth = 260
 
 export default function MainLayout() {
-  const [open, setOpen] = React.useState(true)
-  const location = useLocation()
+  const { darkMode } = useTheme()
 
   return (
-    <Box sx={{ display: 'flex', height: '100vh', backgroundColor: '#F5F7FA' }}>
+    <Box sx={{ display: 'flex', height: '100vh', backgroundColor: 'background.default' }}>
       {/* Sidebar Drawer */}
       <Drawer
         variant="permanent"
@@ -27,8 +22,9 @@ export default function MainLayout() {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
-            backgroundColor: '#FFFFFF',
-            borderRight: '1px solid #E5E7EB',
+            backgroundColor: 'background.paper',
+            borderRight: '1px solid',
+            borderColor: 'divider',
             pt: 0
           }
         }}
@@ -48,7 +44,7 @@ export default function MainLayout() {
           sx={{
             flexGrow: 1,
             overflow: 'auto',
-            backgroundColor: '#F5F7FA',
+            backgroundColor: 'background.default',
             p: 3
           }}
         >
