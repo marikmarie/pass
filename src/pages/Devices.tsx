@@ -123,4 +123,5 @@ export default function Devices() {
         </DialogActions>
       </Dialog>
     </Box>
- 
+  )
+}

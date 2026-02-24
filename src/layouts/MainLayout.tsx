@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Drawer from '@mui/material/Drawer'
@@ -8,34 +8,52 @@ import Typography from '@mui/material/Typography'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import Sidebar from '../components/Sidebar'
+import TopBar from '../components/TopBar'
 
-const drawerWidth = 240
+const drawerWidth = 260
 
 export default function MainLayout() {
   const [open, setOpen] = React.useState(true)
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <AppBar position="fixed" sx={{ zIndex: (t) => t.zIndex.drawer + 1 }}>
-        <Toolbar>
-          <IconButton color="inherit" edge="start" onClick={() => setOpen(!open)} sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            PASS Dashboard
-          </Typography>
-        </Toolbar>
-      </AppBar>
+  const location = useLocation()
 
-      <Drawer variant="persistent" open={open} sx={{ width: drawerWidth, [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' } }}>
-        <Toolbar />
+  return (
+    <Box sx={{ display: 'flex', height: '100vh', backgroundColor: '#F5F7FA' }}>
+      {/* Sidebar Drawer */}
+      <Drawer
+        variant="permanent"
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+            backgroundColor: '#FFFFFF',
+            borderRight: '1px solid #E5E7EB',
+            pt: 0
+          }
+        }}
+        open={true}
+      >
         <Sidebar />
       </Drawer>
 
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar />
-        <div className="app-content">
+      {/* Main Content */}
+      <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, overflow: 'hidden' }}>
+        {/* Top Bar */}
+        <TopBar />
+
+        {/* Page Content */}
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            overflow: 'auto',
+            backgroundColor: '#F5F7FA',
+            p: 3
+          }}
+        >
           <Outlet />
-        </div>
+        </Box>
       </Box>
     </Box>
   )

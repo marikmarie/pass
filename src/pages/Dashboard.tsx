@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Grid, Paper, Box, Card, CardContent, Chip, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Tooltip } from '@mui/material'
+import { Typography, Grid, Paper, Box, Card, CardContent, Chip, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Tooltip, Button } from '@mui/material'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as ChartTooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import ErrorIcon from '@mui/icons-material/Error'
@@ -37,20 +37,37 @@ const deviceStatus = [
 ]
 
 const studentPresence = [
-  { category: 'On Campus', value: 160, fill: '#4caf50' },
-  { category: 'Away', value: 8, fill: '#2196f3' },
+  { category: 'On Campus', value: 160, fill: '#10B981' },
+  { category: 'Away', value: 8, fill: '#8B5CF6' },
 ]
 
 const KPICard = ({ title, value, subtitle, icon: Icon, color }: any) => (
-  <Card sx={{ h: '100%', background: `linear-gradient(135deg, ${color}15 0%, ${color}05 100%)`, borderLeft: `4px solid ${color}` }}>
-    <CardContent>
+  <Card sx={{ 
+    h: '100%', 
+    background: color,
+    color: '#fff',
+    position: 'relative',
+    overflow: 'hidden',
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: -50,
+      right: -50,
+      width: 150,
+      height: 150,
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      borderRadius: '50%'
+    }
+  }}>
+    <CardContent sx={{ position: 'relative', zIndex: 1 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <Box>
-          <Typography color="textSecondary" gutterBottom sx={{ fontSize: '0.875rem' }}>{title}</Typography>
-          <Typography variant="h4" sx={{ fontWeight: 'bold', color }}>{value}</Typography>
-          <Typography variant="caption" color="textSecondary" sx={{ mt: 1 }}>{subtitle}</Typography>
+          <Typography variant="body2" sx={{ opacity: 0.9, fontWeight: 500, mb: 1 }}>{title}</Typography>
+          <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 0.5 }}>{value}</Typography>
+          <Typography variant="caption" sx={{ opacity: 0.8 }}>{subtitle}</Typography>
         </Box>
-        <Icon sx={{ fontSize: 40, color, opacity: 0.3 }} />
+        <Icon sx={{ fontSize: 45, opacity: 0.3 }} />
       </Box>
     </CardContent>
   </Card>
@@ -60,48 +77,80 @@ export default function Dashboard() {
   return (
     <Box sx={{ pb: 4 }}>
       {/* Header */}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-        <Typography variant="h4" sx={{ fontWeight: 'bold' }}>Dashboard</Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+        <Box>
+          <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 0.5 }}>Welcome back, Administrator</Typography>
+          <Typography color="textSecondary" variant="body2">Here's your PASS system overview</Typography>
+        </Box>
         <Tooltip title="Refresh data">
-          <IconButton color="primary" size="small"><RefreshIcon /></IconButton>
+          <IconButton color="primary" size="medium" sx={{ backgroundColor: '#FFF0F7', color: '#FF1B6D' }}>
+            <RefreshIcon />
+          </IconButton>
         </Tooltip>
       </Box>
 
       {/* KPI Cards */}
-      <Grid container spacing={2} sx={{ mb: 3 }}>
+      <Grid container spacing={2.5} sx={{ mb: 3 }}>
         <Grid item xs={12} sm={6} md={3}>
-          <KPICard title="Students On Campus" value="160" subtitle="of 168 enrolled" icon={PeopleIcon} color="#4caf50" />
+          <KPICard 
+            title="Students On Campus" 
+            value="160" 
+            subtitle="of 168 enrolled" 
+            icon={PeopleIcon} 
+            color="linear-gradient(135deg, #FF1B6D 0%, #FF6B9D 100%)"
+          />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <KPICard title="Devices Online" value="3/4" subtitle="Last: Gate C" icon={DevicesIcon} color="#2196f3" />
+          <KPICard 
+            title="Devices Online" 
+            value="3/4" 
+            subtitle="System operational" 
+            icon={DevicesIcon} 
+            color="linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%)"
+          />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <KPICard title="Attendance Rate" value="95.2%" subtitle="Today's verification" icon={CheckCircleIcon} color="#ffc107" />
+          <KPICard 
+            title="Attendance Rate" 
+            value="95.2%" 
+            subtitle="Today's verification" 
+            icon={CheckCircleIcon} 
+            color="linear-gradient(135deg, #10B981 0%, #34D399 100%)"
+          />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <KPICard title="System Uptime" value="99.8%" subtitle="Last 30 days" icon={SpeedIcon} color="#9c27b0" />
+          <KPICard 
+            title="System Uptime" 
+            value="99.8%" 
+            subtitle="Last 30 days" 
+            icon={SpeedIcon} 
+            color="linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%)"
+          />
         </Grid>
       </Grid>
 
       {/* Charts Row */}
-      <Grid container spacing={2} sx={{ mb: 3 }}>
+      <Grid container spacing={2.5} sx={{ mb: 3 }}>
         <Grid item xs={12} md={8}>
-          <Paper sx={{ p: 2 }}>
-            <Typography variant="h6" sx={{ mb: 2, fontWeight: 'bold' }}>Attendance Timeline</Typography>
+          <Paper sx={{ p: 3, backgroundColor: '#fff' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Attendance Timeline</Typography>
+              <Button size="small" variant="text" color="primary">View All</Button>
+            </Box>
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={attendanceData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
-                <XAxis dataKey="time" stroke="#999" />
-                <YAxis stroke="#999" />
-                <ChartTooltip contentStyle={{ backgroundColor: '#f5f5f5', border: '1px solid #ddd', borderRadius: '4px' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                <XAxis dataKey="time" stroke="#9CA3AF" />
+                <YAxis stroke="#9CA3AF" />
+                <ChartTooltip contentStyle={{ backgroundColor: '#F9FAFB', border: '1px solid #E5E7EB', borderRadius: '8px' }} />
                 <Legend />
-                <Line type="monotone" dataKey="students" stroke="#2196f3" strokeWidth={2} dot={{ r: 4 }} activeDot={{ r: 6 }} />
+                <Line type="monotone" dataKey="students" stroke="#FF1B6D" strokeWidth={3} dot={{ r: 5, fill: '#FF1B6D' }} activeDot={{ r: 7 }} />
               </LineChart>
             </ResponsiveContainer>
           </Paper>
         </Grid>
         <Grid item xs={12} md={4}>
-          <Paper sx={{ p: 2 }}>
+          <Paper sx={{ p: 3, backgroundColor: '#fff' }}>
             <Typography variant="h6" sx={{ mb: 2, fontWeight: 'bold' }}>Campus Occupancy</Typography>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
@@ -111,11 +160,11 @@ export default function Dashboard() {
                 <ChartTooltip />
               </PieChart>
             </ResponsiveContainer>
-            <Box sx={{ mt: 2, display: 'flex', gap: 2, justifyContent: 'center' }}>
+            <Box sx={{ mt: 2, display: 'flex', gap: 3, justifyContent: 'center' }}>
               {studentPresence.map((cat: any) => (
                 <Box key={cat.category} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Box sx={{ width: 12, height: 12, backgroundColor: cat.fill, borderRadius: '2px' }} />
-                  <Typography variant="caption">{cat.category}: {cat.value}</Typography>
+                  <Box sx={{ width: 12, height: 12, backgroundColor: cat.fill, borderRadius: '3px' }} />
+                  <Typography variant="caption" color="textSecondary">{cat.category}: {cat.value}</Typography>
                 </Box>
               ))}
             </Box>
@@ -124,28 +173,31 @@ export default function Dashboard() {
       </Grid>
 
       {/* Recent Activity & Device Status */}
-      <Grid container spacing={2}>
+      <Grid container spacing={2.5}>
         <Grid item xs={12} md={8}>
-          <Paper sx={{ p: 2 }}>
-            <Typography variant="h6" sx={{ mb: 2, fontWeight: 'bold' }}>Recent Activity</Typography>
+          <Paper sx={{ p: 3, backgroundColor: '#fff' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Recent Activity</Typography>
+              <Button size="small" variant="text" color="primary">View All</Button>
+            </Box>
             <TableContainer>
               <Table>
-                <TableHead sx={{ backgroundColor: '#f5f5f5' }}>
+                <TableHead sx={{ backgroundColor: '#F9FAFB', borderBottom: '2px solid #E5E7EB' }}>
                   <TableRow>
-                    <TableCell sx={{ fontWeight: 'bold' }}>Student</TableCell>
-                    <TableCell sx={{ fontWeight: 'bold' }}>Action</TableCell>
-                    <TableCell sx={{ fontWeight: 'bold' }}>Device</TableCell>
-                    <TableCell sx={{ fontWeight: 'bold' }}>Time</TableCell>
-                    <TableCell sx={{ fontWeight: 'bold' }}>Status</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold', color: '#1F2937' }}>Student</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold', color: '#1F2937' }}>Action</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold', color: '#1F2937' }}>Device</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold', color: '#1F2937' }}>Time</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold', color: '#1F2937' }}>Status</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {recentActivity.map((row) => (
-                    <TableRow key={row.id} sx={{ '&:hover': { backgroundColor: '#fafafa' } }}>
-                      <TableCell>{row.student}</TableCell>
-                      <TableCell><Chip label={row.action} size="small" variant="outlined" /></TableCell>
-                      <TableCell>{row.device}</TableCell>
-                      <TableCell>{row.time}</TableCell>
+                    <TableRow key={row.id} sx={{ '&:last-child td': { borderBottom: 0 }, '&:hover': { backgroundColor: '#F9FAFB' }, borderBottom: '1px solid #E5E7EB' }}>
+                      <TableCell sx={{ color: '#1F2937', fontWeight: 500 }}>{row.student}</TableCell>
+                      <TableCell><Chip label={row.action} size="small" variant="outlined" sx={{ borderColor: '#E5E7EB' }} /></TableCell>
+                      <TableCell sx={{ color: '#6B7280' }}>{row.device}</TableCell>
+                      <TableCell sx={{ color: '#6B7280' }}>{row.time}</TableCell>
                       <TableCell>
                         <Chip
                           icon={row.status === 'success' ? <CheckCircleIcon /> : <ErrorIcon />}
@@ -163,17 +215,34 @@ export default function Dashboard() {
           </Paper>
         </Grid>
         <Grid item xs={12} md={4}>
-          <Paper sx={{ p: 2 }}>
+          <Paper sx={{ p: 3, backgroundColor: '#fff' }}>
             <Typography variant="h6" sx={{ mb: 2, fontWeight: 'bold' }}>Device Status</Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
               {deviceStatus.map((device) => (
-                <Box key={device.name} sx={{ p: 1.5, backgroundColor: '#f8f9fa', borderRadius: 1, border: '1px solid #e0e0e0' }}>
+                <Box 
+                  key={device.name} 
+                  sx={{ 
+                    p: 2, 
+                    backgroundColor: '#F9FAFB', 
+                    borderRadius: '8px', 
+                    border: '1px solid #E5E7EB',
+                    '&:hover': { backgroundColor: '#F3F4F6' }
+                  }}
+                >
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0.5 }}>
-                    <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>{device.name}</Typography>
-                    <Chip label={device.status === 'online' ? 'Online' : 'Offline'} size="small" color={device.status === 'online' ? 'success' : 'error'} />
+                    <Typography variant="subtitle2" sx={{ fontWeight: 'bold', color: '#1F2937' }}>{device.name}</Typography>
+                    <Chip 
+                      label={device.status === 'online' ? 'Online' : 'Offline'} 
+                      size="small" 
+                      sx={{
+                        backgroundColor: device.status === 'online' ? '#ECFDF5' : '#FEF2F2',
+                        color: device.status === 'online' ? '#10B981' : '#EF4444',
+                        fontWeight: 600
+                      }}
+                    />
                   </Box>
-                  <Typography variant="caption" color="textSecondary">Heartbeat: {device.lastHeartbeat}</Typography>
-                  <Typography variant="caption" display="block" color="textSecondary">Verifications: {device.verifications}</Typography>
+                  <Typography variant="caption" color="textSecondary" display="block">Heartbeat: {device.lastHeartbeat}</Typography>
+                  <Typography variant="caption" color="textSecondary" display="block">Verifications: {device.verifications}</Typography>
                 </Box>
               ))}
             </Box>
