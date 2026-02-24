@@ -6,7 +6,8 @@ const colorMap = {
   purple: '#8B5CF6',
   green: '#10B981',
   orange: '#F97316',
-  red: '#EF4444'
+  red: '#EF4444',
+  gray: '#6B7280'
 }
 
 export const createAppTheme = (darkMode: boolean = false, colorScheme: keyof typeof colorMap = 'pink') => {

@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext } from 'react'
 
-export type ColorScheme = 'pink' | 'blue' | 'purple' | 'green' | 'orange' | 'red'
+export type ColorScheme = 'pink' | 'blue' | 'purple' | 'green' | 'orange' | 'red' | 'gray'
 
 interface ThemeContextType {
   darkMode: boolean

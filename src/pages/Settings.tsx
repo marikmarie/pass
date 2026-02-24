@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Paper, Box, Button, Grid, TextField, Switch, FormControlLabel, Divider, Card, CardContent, Stack, Dialog, DialogTitle, DialogContent, DialogActions, Chip } from '@mui/material'
+import { Typography, Paper, Box, Button, Grid, TextField, Switch, FormControlLabel, Divider, Card, CardContent, Stack, Dialog, DialogTitle, DialogContent, DialogActions, Chip, Tooltip } from '@mui/material'
 import SaveIcon from '@mui/icons-material/Save'
 import WarningIcon from '@mui/icons-material/Warning'
 import WbSunnyIcon from '@mui/icons-material/WbSunny'
@@ -15,6 +15,7 @@ const colorOptions = [
   { name: 'green', hex: '#10B981', label: 'Green' },
   { name: 'orange', hex: '#F97316', label: 'Orange' },
   { name: 'red', hex: '#EF4444', label: 'Red' },
+  { name: 'gray', hex: '#6B7280', label: 'Gray' },
 ]
 
 export default function Settings() {
@@ -102,40 +103,38 @@ export default function Settings() {
           <Typography variant="subtitle2" sx={{ fontWeight: 600, mb: 2, color: 'text.primary' }}>Accent Color</Typography>
           <Typography variant="body2" color="textSecondary" sx={{ mb: 2.5 }}>Customize your dashboard's primary accent color</Typography>
           
-          <Grid container spacing={1.5}>
+          <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
             {colorOptions.map((color) => (
-              <Grid item xs={6} sm={4} md={2} key={color.name}>
-                <Box
-                  onClick={() => setColorScheme(color.name as any)}
-                  sx={{
-                    width: '100%',
-                    aspectRatio: '1',
-                    backgroundColor: color.hex,
-                    borderRadius: '12px',
-                    cursor: 'pointer',
-                    border: colorScheme === color.name ? '3px solid' : '2px solid transparent',
-                    borderColor: colorScheme === color.name ? '#000' : 'transparent',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    transition: 'all 0.2s',
-                    boxShadow: colorScheme === color.name ? `0 0 0 3px ${color.hex}40` : '0 2px 8px rgba(0,0,0,0.1)',
-                    '&:hover': {
-                      transform: 'scale(1.05)',
-                      boxShadow: `0 4px 12px ${color.hex}40`
-                    }
-                  }}
-                >
-                  {colorScheme === color.name && (
-                    <CheckCircleIcon sx={{ color: '#fff', fontSize: '2rem' }} />
-                  )}
-                </Box>
-                <Typography variant="caption" align="center" display="block" sx={{ mt: 1 }}>
-                  {color.label}
-                </Typography>
-              </Grid>
+              <Box key={color.name}>
+                <Tooltip title={color.label}>
+                  <Box
+                    onClick={() => setColorScheme(color.name as any)}
+                    sx={{
+                      width: '40px',
+                      height: '40px',
+                      backgroundColor: color.hex,
+                      borderRadius: '50%',
+                      cursor: 'pointer',
+                      border: colorScheme === color.name ? '2px solid #000' : '1px solid rgba(0,0,0,0.1)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      transition: 'all 0.2s',
+                      boxShadow: colorScheme === color.name ? `0 0 0 2px ${color.hex}60` : '0 1px 4px rgba(0,0,0,0.1)',
+                      '&:hover': {
+                        transform: 'scale(1.15)',
+                        boxShadow: `0 2px 8px ${color.hex}60`
+                      }
+                    }}
+                  >
+                    {colorScheme === color.name && (
+                      <CheckCircleIcon sx={{ color: '#fff', fontSize: '1rem' }} />
+                    )}
+                  </Box>
+                </Tooltip>
+              </Box>
             ))}
-          </Grid>
+          </Box>
         </Box>
       </Paper>
 
