@@ -1,103 +1,76 @@
 # PASS Dashboard
 
-A modern, professional dashboard for Performance Assessment & Support System built with Vite + React + TypeScript + Material UI.
+A professional React + TypeScript dashboard for the PASS (Parent Alert School System) - a biometric-based student monitoring and notification platform.
 
 ## Features
 
-✨ **Modern UI/UX**
-- Clean, professional design with Material UI components
-- Responsive layout that works on all devices
-- Beautiful gradient theme with smooth animations
-- Dark/Light mode support option
+- **Real-Time Dashboard**: Live attendance monitoring, device status, KPIs, and activity logs
+- **Student Management**: Complete student registry with enrollment tracking and status monitoring
+- **School Management**: Multi-school support with device and student allocation
+- **Device Management**: Monitor biometric device status, heartbeat, and verification counts
+- **Attendance Logs**: Detailed transaction logs with search, filter, and export capabilities
+- **Reports & Analytics**: Daily attendance trends, class-wise analytics, and detailed reports
+- **Professional UI**: Material Design components with responsive layout
+- **Charts & Visualizations**: Recharts for attendance trends, occupancy pie charts, and performance metrics
 
-📊 **Comprehensive Pages**
-- **Dashboard**: KPI cards, trend charts, activity logs
-- **Reports**: Detailed analytics with filtering and charts
-- **Users**: User management with roles and status
-- **Settings**: Customizable preferences and configurations
-- **Authentication**: Professional login page
+## Tech Stack
 
-🎨 **Visual Components**
-- Interactive charts using Recharts
-- Data tables with sorting and filtering
-- Progress indicators and status chips
-- KPI cards with trends
-- Activity logs
+- **React 18** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Fast bundler
+- **Material UI (MUI)** - Component library
+- **Recharts** - Data visualization
+- **React Router v6** - Navigation
 
 ## Project Structure
 
 ```
 pass-dashboard/
 ├── src/
-│   ├── components/       # Reusable UI components
-│   │   └── Sidebar.tsx
-│   ├── layouts/          # Layout wrappers
-│   │   └── MainLayout.tsx
-│   ├── pages/           # Page components
-│   │   ├── Dashboard.tsx
-│   │   ├── Reports.tsx
-│   │   ├── Users.tsx
-│   │   ├── Settings.tsx
-│   │   ├── Login.tsx
-│   │   └── NotFound.tsx
-│   ├── data/            # Mock data
-│   │   └── mockData.ts
-│   ├── types/           # TypeScript interfaces
-│   │   └── index.ts
-│   ├── App.tsx
-│   ├── main.tsx
-│   ├── theme.ts
-│   └── index.css
-├── index.html
-├── vite.config.ts
-├── tsconfig.json
-├── package.json
-└── README.md
+│   ├── pages/
+│   │   ├── Dashboard.tsx         # Main overview with KPIs and charts
+│   │   ├── AttendanceLogs.tsx    # Detailed transaction logs
+│   │   ├── Reports.tsx           # Analytics and reporting
+│   │   ├── Students.tsx          # Student management
+│   │   ├── Schools.tsx           # School management
+│   │   ├── Devices.tsx           # Device management
+│   │   ├── Settings.tsx          # Admin settings
+│   │   ├── Login.tsx             # Authentication
+│   │   └── NotFound.tsx          # 404 page
+│   ├── layouts/
+│   │   └── MainLayout.tsx        # Main layout with sidebar & header
+│   ├── components/
+│   │   └── Sidebar.tsx           # Navigation sidebar
+│   ├── App.tsx                   # Routes configuration
+│   ├── main.tsx                  # Entry point
+│   ├── theme.ts                  # MUI theme
+│   └── index.css                 # Global styles
+├── index.html                    # HTML template
+├── vite.config.ts               # Vite configuration
+├── tsconfig.json                # TypeScript config
+└── package.json                 # Dependencies
 ```
 
-## Tech Stack
-
-- **React 18.2** - UI library
-- **TypeScript** - Type safety
-- **Vite** - Fast build tool
-- **Material UI (MUI)** - Component library
-- **Recharts** - Charting library
-- **React Router** - Navigation
-- **Emotion** - CSS-in-JS styling
-- **Axios** - HTTP client (ready to integrate)
-
-## Getting Started
+## Installation & Setup
 
 ### Prerequisites
-
-- Node.js 16+ 
+- Node.js (v16 or higher)
 - npm or yarn
 
-### Installation
+### Quick Start
 
-1. Navigate to the project:
+1. **Install dependencies**:
 ```powershell
 cd "d:\Cissy technologies\PASS\pass-dashboard"
-```
-
-2. Install dependencies:
-```powershell
 npm install
 ```
 
-### Development
-
-Start the development server:
+2. **Start development server**:
 ```powershell
 npm run dev
 ```
 
-The app will open at http://localhost:5173
-
-### Demo Credentials
-
-- **Email**: admin@example.com
-- **Password**: demo123
+3. **Open in browser**: http://localhost:5173
 
 ### Build for Production
 
@@ -105,7 +78,7 @@ The app will open at http://localhost:5173
 npm run build
 ```
 
-The optimized build will be in the `dist` folder.
+Output will be in the `dist` folder.
 
 ### Preview Production Build
 
@@ -113,111 +86,145 @@ The optimized build will be in the `dist` folder.
 npm run preview
 ```
 
-## Pages Overview
+## Dashboard Pages
 
-### 🏠 Dashboard
-- KPI metrics with trend indicators
-- Line charts showing assessment trends
-- Pass/Fail rate pie chart
-- Active assessments table with progress
-- Recent activity log
+### 📊 Dashboard
+- **KPI Cards**: Students on campus, devices online, attendance rate, system uptime
+- **Attendance Timeline**: Line chart showing student entries/exits throughout the day
+- **Campus Occupancy**: Pie chart showing student presence distribution
+- **Recent Activity**: Real-time log of student entries/exits with status indicators
+- **Device Status**: Monitors all biometric devices with heartbeat and verification counts
 
-### 📈 Reports
-- Category statistics cards
-- Completion rate bar charts
-- Status distribution visualization
-- Searchable and filterable reports table
-- Download functionality
+### 📋 Attendance Logs
+- Searchable transaction log of all student verifications
+- Filter by date range and student
+- Status indicators (Success/Failed/Unknown)
+- Pagination support
+- Export to CSV functionality
 
-### 👥 Users
-- User statistics overview
-- Search and filter by role
-- User management table with actions
-- Avatar initials
-- Add new user dialog
-- Role-based coloring
+### 📈 Reports & Analytics
+- **Daily Attendance Trend**: Multi-line chart showing present/absent/late trends
+- **Attendance by Class**: Bar chart comparing attendance rates across classes
+- **Detailed Daily Report**: Success rates, failed attempts, average processing time
+- Date range filtering
+- School-wise filtering
+- Export capability
+
+### 👥 Students Management
+- Complete student registry with admission numbers
+- Search functionality
+- Enrollment status tracking
+- Last captured activity
+- Add/Edit/Delete student functionality
+- Parent contact information
+
+### 🏫 Schools Management
+- Multi-school support
+- School information and location
+- Principal details
+- Student count per school
+- Device allocation per school
+- Active/Inactive status
+
+### 🔧 Devices Management
+- Device registry with unique IDs
+- Real-time online/offline status
+- Heartbeat monitoring
+- Verification counts
+- Device location and school association
+- Add/Edit/Delete device capabilities
 
 ### ⚙️ Settings
-- **General**: App name, organization, timezone, language
-- **Appearance**: Theme colors, dark mode, compact view
-- **Security**: 2FA, session timeout, password policies
-- **Notifications**: Email preferences, alert types
+- School configuration
+- Notification preferences (SMS, USSD)
+- Device heartbeat intervals
+- Notification delay settings
+- Danger zone operations
 
-### 🔐 Login
-- Modern gradient background
-- Email and password fields
-- Remember me checkbox
-- Forgot password & Sign up links
-- Demo credentials display
+## Dummy Data
+
+The dashboard comes pre-populated with realistic dummy data:
+- 168 students across 4 schools
+- 4 biometric devices with live status simulation
+- 328+ attendance logs
+- Daily attendance trends
+- Multiple schools with different configurations
 
 ## Customization
 
-### Colors & Theme
+### Update Theme
+Edit `src/theme.ts` to customize colors:
 
-Edit `src/theme.ts` to customize:
-- Primary & secondary colors
-- Typography
-- Component styles
-
-Current color scheme:
-- Primary: `#667eea` (Purple-Blue)
-- Secondary: `#764ba2` (Purple)
-
-### Mock Data
-
-Edit `src/data/mockData.ts` to:
-- Add more sample data
-- Modify existing data structure
-- Update metrics and statistics
+```tsx
+const theme = createTheme({
+  palette: {
+    primary: { main: '#1976d2' },
+    secondary: { main: '#9c27b0' }
+  }
+})
+```
 
 ### Add New Pages
-
-1. Create page file in `src/pages/`
+1. Create page file in `src/pages/YourPage.tsx`
 2. Add route in `src/App.tsx`
 3. Add navigation item in `src/components/Sidebar.tsx`
 
-## API Integration
+### Integrate with Backend
+Replace dummy data with API calls:
 
-Ready to connect to backend services. Replace mock data in `src/data/mockData.ts` with API calls:
-
-```typescript
+```tsx
 import axios from 'axios'
 
-export const fetchDashboard = async () => {
-  const response = await axios.get('/api/dashboard')
-  return response.data
-}
+const [data, setData] = React.useState([])
+
+React.useEffect(() => {
+  axios.get('/api/attendance-logs')
+    .then(res => setData(res.data))
+}, [])
 ```
 
-## Browser Support
+## Next Steps
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+1. **Backend Integration**: Connect to PASS API endpoints
+2. **Real-Time Updates**: Implement WebSocket for live data
+3. **Authentication**: Add login/auth system
+4. **Export Features**: Implement PDF/CSV export
+5. **Mobile Responsiveness**: Enhance tablet/mobile views
+6. **Notifications**: Integrate notification toasts
+7. **Dark Mode**: Add theme toggle
 
-## Future Enhancements
+## Performance Tips
 
-- [ ] Real backend API integration
-- [ ] User authentication system
-- [ ] Export reports to PDF/Excel
-- [ ] Dark mode implementation
-- [ ] Multi-language support
-- [ ] Advanced user management
-- [ ] Dashboard customization
-- [ ] Email notifications
+- Uses Vite for fast HMR (Hot Module Reload)
+- Code splitting with React Router
+- Lazy loading for heavy components
+- Optimized chart rendering with Recharts
 
-## Performance
+## Troubleshooting
 
-- ⚡ Fast page loads with Vite
-- 📦 Optimized bundle size
-- 🎯 Code splitting for faster initial load
-- 📱 Mobile-optimized
+### Dependencies not installing?
+```powershell
+npm install --legacy-peer-deps
+```
+
+### Port 5173 already in use?
+```powershell
+npm run dev -- --port 3000
+```
+
+### TypeScript errors?
+```powershell
+npm run build  # Full type checking
+```
 
 ## License
 
-© 2026 Cissy Technologies. All rights reserved.
+Proprietary - Cissy Technologies
 
 ## Support
 
-For issues and questions, please contact the development team.
+For questions or issues:
+- Email: cissytech@gmail.com
+- Phone: +256 709 100 974
+- Website: www.cissytech.com
+

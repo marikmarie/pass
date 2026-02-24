@@ -1,0 +1,14 @@
+:root {
+  --app-max-width: 1200px;
+}
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.app-content {
+  padding: 24px;
+}
