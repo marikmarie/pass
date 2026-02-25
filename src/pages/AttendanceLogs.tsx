@@ -4,15 +4,13 @@ import SearchIcon from '@mui/icons-material/Search'
 import FileDownloadIcon from '@mui/icons-material/FileDownload'
 
 const dummyLogs = [
-  { id: 328, timestamp: '2026-02-23 09:15:32', student: 'John Doe', admissionNo: 'ADM001', device: 'Gate A', action: 'Entry', status: 'SUCCESS' },
-  { id: 327, timestamp: '2026-02-23 09:14:15', student: 'Jane Smith', admissionNo: 'ADM002', device: 'Gate A', action: 'Entry', status: 'SUCCESS' },
-  { id: 326, timestamp: '2026-02-23 09:12:47', student: 'Michael Brown', admissionNo: 'ADM003', device: 'Gate B', action: 'Exit', status: 'SUCCESS' },
-  { id: 325, timestamp: '2026-02-23 09:10:22', student: 'Emily Wilson', admissionNo: 'ADM004', device: 'Gate A', action: 'Entry', status: 'SUCCESS' },
-  { id: 324, timestamp: '2026-02-23 09:08:55', student: 'David Lee', admissionNo: 'ADM005', device: 'Gate B', action: 'Entry', status: 'FAILED' },
-  { id: 323, timestamp: '2026-02-23 09:06:11', student: 'Sarah Johnson', admissionNo: 'ADM006', device: 'Gate A', action: 'Entry', status: 'SUCCESS' },
-  { id: 322, timestamp: '2026-02-23 09:04:33', student: 'Tom Anderson', admissionNo: 'ADM007', device: 'Gate C', action: 'Entry', status: 'UNKNOWN' },
-  { id: 321, timestamp: '2026-02-23 09:02:18', student: 'Lisa White', admissionNo: 'ADM008', device: 'Gate A', action: 'Entry', status: 'SUCCESS' },
-  { id: 320, timestamp: '2026-02-23 08:59:45', student: 'Robert Green', admissionNo: 'ADM009', device: 'Gate B', action: 'Entry', status: 'SUCCESS' },
+  { id: 328, timestamp: '2026-02-23 09:15:32', student: 'Mariam T', admissionNo: 'ADM001', device: 'Gate A', action: 'Entry', status: 'SUCCESS' },
+  { id: 327, timestamp: '2026-02-23 09:14:15', student: 'Amad Diallo', admissionNo: 'ADM002', device: 'Gate A', action: 'Entry', status: 'SUCCESS' },
+{ id: 323, timestamp: '2026-02-23 09:06:11', student: 'Samsom Kwiz', admissionNo: 'ADM006', device: 'Gate A', action: 'Entry', status: 'SUCCESS' },
+  { id: 326, timestamp: '2026-02-23 09:12:47', student: 'Kobbie Mainoo', admissionNo: 'ADM003', device: 'Gate B', action: 'Exit', status: 'SUCCESS' },
+  { id: 325, timestamp: '2026-02-23 09:10:22', student: 'Mark Machirs', admissionNo: 'ADM004', device: 'Gate A', action: 'Entry', status: 'SUCCESS' },
+  { id: 324, timestamp: '2026-02-23 09:08:55', student: 'Maria Asiimwe', admissionNo: 'ADM005', device: 'Gate B', action: 'Entry', status: 'FAILED' },
+  { id: 323, timestamp: '2026-02-23 09:06:11', student: 'The Rock', admissionNo: 'ADM006', device: 'Gate A', action: 'Entry', status: 'SUCCESS' },
   { id: 319, timestamp: '2026-02-23 08:57:12', student: 'Maria Garcia', admissionNo: 'ADM010', device: 'Gate A', action: 'Entry', status: 'SUCCESS' },
 ]
 

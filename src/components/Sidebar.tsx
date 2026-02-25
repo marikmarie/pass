@@ -58,9 +58,9 @@ export default function Sidebar() {
             <Typography variant="subtitle1" sx={{ fontWeight: 700, lineHeight: 1, color: 'text.primary' }}>
               PASS
             </Typography>
-            <Typography variant="caption" color="textSecondary">
+            {/* <Typography variant="caption" color="textSecondary">
               System
-            </Typography>
+            </Typography> */}
           </Box>
         </Box>
       </Box>

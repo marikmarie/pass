@@ -22,11 +22,9 @@ const attendanceData = [
 ]
 
 const recentActivity = [
-  { id: 1, student: 'John Doe', action: 'Entry', device: 'Gate A', time: '09:15', status: 'success' },
-  { id: 2, student: 'Jane Smith', action: 'Entry', device: 'Gate A', time: '09:14', status: 'success' },
-  { id: 3, student: 'Michael Brown', action: 'Exit', device: 'Gate B', time: '09:12', status: 'success' },
-  { id: 4, student: 'Emily Wilson', action: 'Entry', device: 'Gate A', time: '09:10', status: 'success' },
-  { id: 5, student: 'David Lee', action: 'Failed', device: 'Gate B', time: '09:08', status: 'error' },
+  { id: 1, student: 'Tukas M', action: 'Entry', device: 'Gate A', time: '09:15', status: 'success' },
+  { id: 2, student: 'Sam Kwizz', action: 'Entry', device: 'Dinning', time: '09:14', status: 'success' },
+  { id: 3, student: 'Asiimwe M', action: 'Exit', device: 'Class 2', time: '09:12', status: 'success' },
 ]
 
 const deviceStatus = [
