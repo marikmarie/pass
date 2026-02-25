@@ -35,8 +35,8 @@ const deviceStatus = [
 ]
 
 const studentPresence = [
-  { category: 'On Campus', value: 160, fill: '#10B981' },
-  { category: 'Away', value: 8, fill: '#8B5CF6' },
+  { category: 'On Campus', value: 160, fill: '#0055FF' },
+  { category: 'Away', value: 8, fill: '#CDCDFD' },
 ]
 
 const KPICard = ({ title, value, subtitle, icon: Icon }: any) => {
@@ -88,17 +88,17 @@ export default function Dashboard() {
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
         <Box>
           <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 0.5 }}>Welcome back, Administrator</Typography>
-          <Typography color="textSecondary" variant="body2">Here's your PASS system overview</Typography>
+          <Typography color="textSecondary" variant="body2">Here's your PASS. overview</Typography>
         </Box>
         <Tooltip title="Refresh data">
           <IconButton 
             color="primary" 
             size="medium" 
             sx={{ 
-              backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 27, 109, 0.1)' : '#FFF0F7', 
+              backgroundColor: theme.palette.mode === 'dark' ? 'rgba(0, 85, 255, 0.1)' : 'rgba(0, 85, 255, 0.1)', 
               color: 'primary.main',
               '&:hover': {
-                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 27, 109, 0.2)' : '#FFE4F0'
+                backgroundColor: theme.palette.mode === 'dark' ? 'rgba(0, 85, 255, 0.2)' : 'rgba(0, 85, 255, 0.2)'
               }
             }}
           >

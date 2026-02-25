@@ -1,16 +1,11 @@
 import { createTheme } from '@mui/material/styles'
 
 const colorMap = {
-  pink: '#FF1B6D',
-  blue: '#3B82F6',
-  purple: '#8B5CF6',
-  green: '#10B981',
-  orange: '#F97316',
-  red: '#EF4444',
-  gray: '#6B7280'
+  blue: '#0055ff',
+  gray: '#cdcdfd'
 }
 
-export const createAppTheme = (darkMode: boolean = false, colorScheme: keyof typeof colorMap = 'pink') => {
+export const createAppTheme = (darkMode: boolean = false, colorScheme: keyof typeof colorMap = 'blue') => {
   const primaryColor = colorMap[colorScheme]
   const isDark = darkMode
 

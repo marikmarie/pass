@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext } from 'react'
 
-export type ColorScheme = 'pink' | 'blue' | 'purple' | 'green' | 'orange' | 'red' | 'gray'
+export type ColorScheme = 'blue' | 'gray' 
 
 interface ThemeContextType {
   darkMode: boolean
@@ -13,7 +13,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false)
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('pink')
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('blue')
 
   const toggleDarkMode = () => setDarkMode(!darkMode)
 

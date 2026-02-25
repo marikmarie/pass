@@ -9,13 +9,13 @@ import BrushIcon from '@mui/icons-material/Brush'
 import { useTheme } from '../context/ThemeContext'
 
 const colorOptions = [
-  { name: 'pink', hex: '#FF1B6D', label: 'Pink' },
-  { name: 'blue', hex: '#3B82F6', label: 'Blue' },
+  { name: 'blue', hex: '#0055ff', label: 'Blue' },
+  
+  { name: 'gray', hex: '#cdcdfd', label: 'Gray' },
   { name: 'purple', hex: '#8B5CF6', label: 'Purple' },
   { name: 'green', hex: '#10B981', label: 'Green' },
   { name: 'orange', hex: '#F97316', label: 'Orange' },
   { name: 'red', hex: '#EF4444', label: 'Red' },
-  { name: 'gray', hex: '#6B7280', label: 'Gray' },
 ]
 
 export default function Settings() {
@@ -175,7 +175,7 @@ export default function Settings() {
 
       {/* About Section */}
       <Paper sx={{ p: 3, mb: 3, backgroundColor: 'background.paper' }}>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>About PASS System</Typography>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>About PASS.</Typography>
         <Box sx={{ display: 'grid', gap: 2 }}>
           <Box>
             <Typography variant="subtitle2" sx={{ fontWeight: 600, color: 'text.primary' }}>Version</Typography>

@@ -15,7 +15,7 @@ function AppWithTheme() {
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter basename="/pass">
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </MuiThemeProvider>
