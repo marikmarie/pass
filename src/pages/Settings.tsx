@@ -10,12 +10,8 @@ import { useTheme } from '../context/ThemeContext'
 
 const colorOptions = [
   { name: 'blue', hex: '#0055ff', label: 'Blue' },
-  
   { name: 'gray', hex: '#cdcdfd', label: 'Gray' },
-  { name: 'purple', hex: '#8B5CF6', label: 'Purple' },
-  { name: 'green', hex: '#10B981', label: 'Green' },
-  { name: 'orange', hex: '#F97316', label: 'Orange' },
-  { name: 'red', hex: '#EF4444', label: 'Red' },
+
 ]
 
 export default function Settings() {

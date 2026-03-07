@@ -36,15 +36,12 @@ export default function Sidebar() {
   const { colorScheme } = useCustomTheme()
 
   const colorMap = {
-    pink: '#FF1B6D',
-    blue: '#3B82F6',
-    purple: '#8B5CF6',
-    green: '#10B981',
-    orange: '#F97316',
-    red: '#EF4444'
+    gray: '#cdcdfd',
+    blue: '#0055ff',
+    
   }
   
-  const primaryColor = colorMap[colorScheme as keyof typeof colorMap] || '#FF1B6D'
+  const primaryColor = colorMap[colorScheme as keyof typeof colorMap] || '#cdcdfd'
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
